@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATASTRO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CATASTRO MULTIPROPOSITO</h1>
+            <p class="subtitle">Bienvenido al portal de CATASTRO. Por favor, elija una opción a continuación:</p>
+        </header>
+        <div class="options">
+            <div class="option-card">
+                <a href="{{ url_for('pqrsd_form', tipo='peticion') }}">Peticiones</a>
+            </div>
+            <div class="option-card">
+                <a href="{{ url_for('pqrsd_form', tipo='queja') }}">Quejas</a>
+            </div>
+            <div class="option-card">
+                <a href="{{ url_for('pqrsd_form', tipo='reclamo') }}">Reclamos</a>
+            </div>
+            <div class="option-card">
+                <a href="{{ url_for('pqrsd_form', tipo='sugerencia') }}">Sugerencias</a>
+            </div>
+            <div class="option-card">
+                <a href="{{ url_for('pqrsd_form', tipo='denuncia') }}">Denuncias</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

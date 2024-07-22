@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario PQRSD - {{ tipo | capitalize }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+        .input-error {
+            border: 1px solid red !important;
+        }
+        #notification {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .success { background-color: #4CAF50; }
+        .error { background-color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PQRDS (Recepción de Solicitudes)</h1>
+        <h2>{{ tipo | capitalize }}</h2>
+    
+        <form id="pqrsdForm" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <input type="hidden" name="tipo" value="{{ tipo }}">
+
+            {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {{ field(class="form-control") }}
+                    <div class="error-message" id="{{ field.name }}-error"></div>
+                </div>
+            {% endfor %}
+
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
+
+    <div id="notification"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

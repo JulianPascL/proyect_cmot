@@ -1,0 +1,282 @@
+/* Estilos base */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(160, 168, 175); 
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 20px;
+    padding: 40px;
+    background-color: #fcfdfd; /* Fondo blanco para el contenedor */
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 20px rgba(50,50,93,0.1),
+        0 5px 10px rgba(0,0,0,0.05);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Estilos para las opciones */
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.option-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.option-card a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.option-card a:hover {
+    background-color: #7f8d96;
+    color: white;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 98%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .options {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .option-card a {
+        padding: 15px;
+    }
+}
+
+/* Estilos para formularios */
+form {
+    display: grid;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.required::after {
+    content: " *";
+    color: red;
+}
+
+/* Media queries (agrega estas reglas a las media queries existentes) */
+@media (max-width: 768px) {
+    form {
+        gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        gap: 10px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    select,
+    textarea {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+    color: #f44336;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Estilo para campos con error */
+.input-error {
+    border-color: #f44336 !important;
+}
+
+/* Estilos para la notificación */
+#notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: none;
+}
+
+#notification.success {
+    background-color: #4CAF50;
+}
+
+#notification.error {
+    background-color: #f44336;
+}
